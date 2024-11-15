@@ -68,7 +68,7 @@
     "@vitejs/plugin-vue": "^4.6.2",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/runtime-core": "^3.5.12",
-    "el-plus-powerful-table-ts": "^2.2.15",
+    "el-plus-powerful-table-ts": "^2.2.16",
     "eslint": "^8.57.1",
     "eslint-define-config": "^1.24.1",
     "sass": "^1.80.7",
