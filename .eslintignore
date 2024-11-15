@@ -1,0 +1,9 @@
+dist
+lib
+es
+node_modules
+README.md
+pnpm-lock.yaml
+icon.js
+auto-imports.d.ts
+components.d.ts

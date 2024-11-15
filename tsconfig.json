@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "outDir": "lib",
+    "target": "esnext",
+    "module": "esnext",
+    "sourceMap": false,
+    "strict": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      // 避免dts构建TS报错
+      "element-plus": [
+        "node_modules/element-plus"
+      ],
+      "~/*": [
+        "./packages/*"
+      ],
+      "#/*": [
+        "./typings/*"
+      ]
+    },
+    "types": [
+      "@types/node",
+      "vite/client",
+      "./typings/index",
+    ],
+    "lib": [
+      "dom",
+      "esnext"
+    ]
+  },
+  "include": [
+    "demo",
+    "packages",
+    "typings",
+    "global.d.ts",
+    "auto-imports.d.ts",
+    "components.d.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules/**",
+    "env.d.ts"
+  ]
+}
