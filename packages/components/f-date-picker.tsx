@@ -26,7 +26,7 @@ export const FDatePicker = defineComponent({
       <>
         <ElDatePicker
           v-model={props.formData[props.formItem.prop!]}
-          style={data?.style || {}}
+          style={data?.style || (props.inline ? {} : { width: '100%' })}
           // ElDatePicker 未提供事件类型，但是不影响正常使用
           start-placeholder="开始时间"
           end-placeholder="结束时间"

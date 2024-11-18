@@ -1,6 +1,19 @@
-<!-- ## [DEMO](https://peng-xiao-shuai.github.io/vite-vue-admin-docs/zh-CN/component/powerful-table-demo.html) -->
+## [DEMO](https://peng-xiao-shuai.github.io/vite-vue-admin-docs/zh-CN/component_directive/component/powerful-form-demo.html)
 
-## [DOCS](https://peng-xiao-shuai.github.io/vite-vue-admin-docs/zh-CN/component_directive/component/form-view-doc.html)
+## [DOCS](https://peng-xiao-shuai.github.io/vite-vue-admin-docs/zh-CN/component_directive/component/powerful-form-doc.html)
+
+## 语言
+对于语言方面组件是默认使用 `英语` 因为 `element-plus` 默认是使用英语，不引用中文包的主要原因是避免增大体积。
+组件内部语言跟随 `element-plus`。 部分 提示文字 语言，组件内部也支持 `中、英` 文，如果你需要支持更多语言或者更改组件内部
+的语言，可以在 `use(PowerfulForm, { local: 您的语言变量 })` 替换。也可以参考我们提供的 `demo` 实现。
+
+
+## 更新预告
+- 2.0.0 版本
+- - 支持上传功能
+
+## 1.0.2 20241118
+- 更改 `f-date-picker` 组件默认样式
 
 ## Git 贡献提交规范
 
