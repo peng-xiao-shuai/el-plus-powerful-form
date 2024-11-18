@@ -1,4 +1,4 @@
-import type { FormTypeEnum, verify } from '../packages/index'
+import type { FormTypeEnum, verify } from 'el-plus-powerful-form'
 import type { h as createElement } from 'vue'
 import type {
   InputEmit,

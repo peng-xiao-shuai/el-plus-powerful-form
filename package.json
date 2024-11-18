@@ -1,6 +1,6 @@
 {
   "name": "el-plus-powerful-form",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "keywords": [
     "element-plus",
@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "el-plus-powerful-form": "^1.0.3",
     "element-plus": "^2.8.7",
     "vue": "^3.5.12"
   },
