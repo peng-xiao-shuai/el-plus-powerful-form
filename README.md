@@ -12,8 +12,9 @@
 - 2.0.0 版本
 - - 支持上传功能
 
-## 1.0.3 20241118
-## 1.0.2 20241118
+## 1.0.4 20241118
+- `submitForm` 函数添加参数 `options` 支持传递 `successMessage`, `errorMessage` 属性用于覆盖默认提示
+- 修复 `submitForm` 验证失败没用返回 false
 - 更改类型错误
 - 更改 `f-date-picker` 组件默认样式
 
