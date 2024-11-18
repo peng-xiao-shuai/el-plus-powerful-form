@@ -84,7 +84,7 @@ defineExpose({
     elFormRef,
   },
   props,
-  formViewData,
+  powerfulFormData: formViewData,
   formItems: formRenderItems.value,
   submitForm,
   resetForm,
