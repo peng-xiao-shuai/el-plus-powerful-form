@@ -7,14 +7,12 @@
  */
 import { ElInput } from 'element-plus'
 import type { SetDataType } from '~/index'
+import { FormTypeEnum, clearSymbol } from '~/index'
 import {
-  FormTypeEnum,
-  clearSymbol,
   componentProps,
   isProperty,
   useEvent,
-} from '~/index'
-
+} from '~/powerful-form/src/form-view-data'
 export const FInput = defineComponent({
   name: 'FInput',
   props: componentProps(),

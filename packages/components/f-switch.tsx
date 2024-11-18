@@ -7,8 +7,11 @@
  */
 import { ElSwitch } from 'element-plus'
 import type { FormTypeEnum, SetDataType } from '~/index'
-import { componentProps, isProperty, useEvent } from '~/index'
-
+import {
+  componentProps,
+  isProperty,
+  useEvent,
+} from '~/powerful-form/src/form-view-data'
 export const FSwitch = defineComponent({
   name: 'FSwitch',
   props: componentProps(),

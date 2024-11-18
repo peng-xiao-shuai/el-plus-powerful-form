@@ -7,7 +7,11 @@
  */
 import { ElRate } from 'element-plus'
 import type { FormTypeEnum, SetDataType } from '~/index'
-import { componentProps, isProperty, useEvent } from '~/index'
+import {
+  componentProps,
+  isProperty,
+  useEvent,
+} from '~/powerful-form/src/form-view-data'
 
 export const FRate = defineComponent({
   name: 'FRate',

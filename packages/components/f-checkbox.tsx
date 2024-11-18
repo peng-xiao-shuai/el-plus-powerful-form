@@ -9,7 +9,12 @@ import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
 import 'element-plus/theme-chalk/src/checkbox-group.scss'
 import 'element-plus/theme-chalk/src/checkbox.scss'
 import type { FormTypeEnum, SetDataType } from '~/index'
-import { componentProps, isBolOrFun, isProperty, useEvent } from '~/index'
+import { isBolOrFun } from '~/index'
+import {
+  componentProps,
+  isProperty,
+  useEvent,
+} from '~/powerful-form/src/form-view-data'
 
 export const FCheckbox = defineComponent({
   name: 'FCheckbox',

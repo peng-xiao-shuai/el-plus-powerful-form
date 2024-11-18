@@ -7,8 +7,11 @@
  */
 import UploadMedia from '../../com-upload-media.vue'
 import type { FormTypeEnum, SetDataType } from '~/index'
-import { componentProps, isProperty, useEvent } from '~/index'
-
+import {
+  componentProps,
+  isProperty,
+  useEvent,
+} from '~/powerful-form/src/form-view-data'
 export const FUploadMedia = defineComponent({
   name: 'FUploadMedia',
   props: componentProps(),

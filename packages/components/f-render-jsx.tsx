@@ -1,5 +1,5 @@
 import type { SFCWithInstall } from 'element-plus/es/utils'
-import { componentProps } from '~/index'
+import { componentProps } from '~/powerful-form/src/form-view-data'
 
 const RenderJsx = defineComponent({
   name: 'FRenderJsx',

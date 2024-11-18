@@ -9,9 +9,12 @@ import { ElSelectV2 } from 'element-plus'
 import 'element-plus/theme-chalk/src/select-v2.scss'
 
 import type { FormTypeEnum, SetDataType } from '~/index'
-import { componentProps, isProperty, useEvent } from '~/index'
 import { clearSymbol } from '~/utils'
-
+import {
+  componentProps,
+  isProperty,
+  useEvent,
+} from '~/powerful-form/src/form-view-data'
 export const FSelect = defineComponent({
   name: 'FSelect',
   props: componentProps(),

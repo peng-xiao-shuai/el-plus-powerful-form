@@ -9,8 +9,12 @@ import { ElRadio, ElRadioGroup } from 'element-plus'
 import 'element-plus/theme-chalk/src/radio-group.scss'
 import 'element-plus/theme-chalk/src/radio.scss'
 import type { FormTypeEnum, SetDataType } from '~/index'
-import { componentProps, isBolOrFun, isProperty, useEvent } from '~/index'
-
+import { isBolOrFun } from '~/index'
+import {
+  componentProps,
+  isProperty,
+  useEvent,
+} from '~/powerful-form/src/form-view-data'
 export const FRadio = defineComponent({
   name: 'FRadio',
   props: componentProps(),
