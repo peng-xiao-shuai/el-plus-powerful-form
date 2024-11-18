@@ -428,7 +428,13 @@ export const useFunction = (
   /**
    * @param {object} [params = {}] apis 请求的格外参数
    */
-  const submitForm = (params: object = {}) => {
+  const submitForm = (
+    params: object = {},
+    options?: {
+      successMessage?: string
+      errorMessage?: string
+    }
+  ) => {
     elFormRef
       .value!.validate()
       .then(() => {
@@ -449,10 +455,14 @@ export const useFunction = (
                   ...formData.value,
                 })
                   .then(() => {
-                    ElMessage.success('提交成功！')
+                    if (options) {
+                      ElMessage.success(options.successMessage || '提交成功！')
+                    }
                   })
                   .catch(() => {
-                    ElMessage.error('提交失败！')
+                    if (options) {
+                      ElMessage.error(options.errorMessage || '提交失败！')
+                    }
                   })
               } else console.error(`apis.${props.showType} 不存在`)
             } else
@@ -463,16 +473,20 @@ export const useFunction = (
             props
               .apis?.({ ...params, ...formData.value })
               .then(() => {
-                ElMessage.success('提交成功！')
+                if (options) {
+                  ElMessage.success(options.successMessage || '提交成功！')
+                }
               })
               .catch(() => {
-                ElMessage.error('提交失败！')
+                if (options) {
+                  ElMessage.error(options.errorMessage || '提交失败！')
+                }
               })
           }
         }
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+        return false
       })
 
     return elFormRef.value!.validate()

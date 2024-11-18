@@ -821,7 +821,7 @@ export interface PowerfulFormExpose {
   /**
    * 表单数据
    */
-  PowerfulFormData: PowerfulFormData
+  powerfulFormData: PowerfulFormData
   /**
    * formItems 更具 props.showType 过滤后的数据
    */
@@ -829,9 +829,15 @@ export interface PowerfulFormExpose {
   /**
    * 提交校验函数
    * @param {object} [params = {}] apis 请求的格外参数
-   * @returns Promise<any>
+   * @param {object} [options = {}] 提示信息
    */
-  submitForm: (params?: object) => Promise<boolean>
+  submitForm: (
+    params?: object,
+    options?: {
+      successMessage?: string
+      errorMessage?: string
+    }
+  ) => Promise<boolean>
 
   /**
    * 重置表单数据
