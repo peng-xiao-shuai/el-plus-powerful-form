@@ -22,7 +22,9 @@
       <el-button
         type="primary"
         @click="
-          powerfulTable?.resetList(powerfulForm?.formViewData.formData || {})
+          powerfulTable?.resetList(
+            powerfulForm?.powerfulFormData.formData || {}
+          )
         "
       >
         查询
@@ -275,7 +277,9 @@ const data = reactive({
     roleId: 0,
   },
 })
-const updateAdmin = () => {
+const updateAdmin = (params: object) => {
+  console.log(params, 'params')
+
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({})
@@ -283,7 +287,10 @@ const updateAdmin = () => {
   })
 }
 const handleConfirm = () => {
-  PFormOperate.value?.submitForm()
+  PFormOperate.value?.submitForm({
+    a: 1,
+    b: 2,
+  })
 
   state.dialogVisible = false
 }
