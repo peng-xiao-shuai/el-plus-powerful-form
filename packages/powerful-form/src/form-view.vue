@@ -6,50 +6,56 @@
  * @Description:
 -->
 <template>
-  <ElForm
-    v-bind="property"
-    ref="elFormRef"
-    :model="formData"
-    :rules="props.showType === 'query' ? {} : rules"
-    :disabled="disabled"
-    :style="
-      property?.inline
-        ? {}
-        : {
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-          }
-    "
-  >
-    <ElFormItem
-      v-for="(item, index) in formRenderItems"
-      :key="item.prop"
-      :prop="item.prop"
-      :label="showLabel ? clearSymbol(item.text) : ''"
-      :style="{
-        flexBasis: item?.basis || '100%',
-      }"
+  <div style="transition: height 0.3s; overflow: hidden">
+    <ElForm
+      v-bind="property"
+      ref="elFormRef"
+      :model="formData"
+      :rules="props.showType === 'query' ? {} : rules"
+      :disabled="disabled"
+      :style="
+        property?.inline
+          ? {}
+          : {
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+            }
+      "
     >
-      <!-- 插槽 -->
-      <slot
-        v-if="item.type == 'slot'"
-        :name="item.slotName || 'default'"
-        :index="index"
-      />
+      <ElFormItem
+        v-for="(item, index) in formRenderItems"
+        :key="item.prop"
+        :prop="item.prop"
+        :label="showLabel ? clearSymbol(item.text) : ''"
+        :style="{
+          flexBasis: item?.basis || '100%',
+        }"
+      >
+        <!-- 插槽 -->
+        <slot
+          v-if="item.type == 'slot'"
+          :name="item.slotName || 'default'"
+          :index="index"
+        />
 
-      <FRenderJsx
-        v-else-if="typeof item.render == 'function'"
-        v-bind="bindAttr(item, formData, index)"
-      />
-      <component
-        :is="matchComponents(item.type || FormTypeEnum.Input)"
-        v-bind="bindAttr(item, formData, index)"
-        v-else
-        @update:model-value="formData[item.prop!] = $event"
-      />
-    </ElFormItem>
-  </ElForm>
+        <FRenderJsx
+          v-else-if="typeof item.render == 'function'"
+          v-bind="bindAttr(item, formData, index)"
+        />
+        <component
+          :is="matchComponents(item.type || FormTypeEnum.Input)"
+          v-bind="bindAttr(item, formData, index)"
+          v-else
+          @update:model-value="formData[item.prop!] = $event"
+        />
+      </ElFormItem>
+
+      <ElFormItem v-if="$slots['last-item']">
+        <slot name="last-item" />
+      </ElFormItem>
+    </ElForm>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -70,12 +76,8 @@ const { formViewData, formRenderItems, elFormRef, transformHeader } =
   useFormViewState(props)
 const { formData, rules } = toRefs(formViewData)
 
-const { bindAttr, submitForm, resetForm, refreshRender } = useFunction(
-  props,
-  formData,
-  elFormRef,
-  transformHeader
-)
+const { bindAttr, submitForm, resetForm, refreshRender, visibleFormTrigger } =
+  useFunction(props, formData, elFormRef, transformHeader)
 
 defineExpose({
   $slots: useSlots(),
@@ -86,6 +88,7 @@ defineExpose({
   props,
   powerfulFormData: formViewData,
   formItems: formRenderItems.value,
+  visibleFormTrigger,
   submitForm,
   resetForm,
   refreshRender,

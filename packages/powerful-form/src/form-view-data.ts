@@ -133,6 +133,17 @@ export const useFormViewState = (props: PowerfulFormProps) => {
   const elFormRef = ref<FormInstance | null>(null)
   const { t } = useLocale()
 
+  onMounted(() => {
+    setTimeout(() => {
+      const formEl = elFormRef.value?.$el
+      const parentEl = formEl?.parentNode
+
+      if (parentEl && formEl) {
+        parentEl.style.height = `${formEl.offsetHeight}px`
+      }
+    }, 100)
+  })
+
   /**
    * @description 写入 formItems 数据，在基于 formItems 数据写入 rules、formData
    * @param {PowerfulTableHeader} PTHeader 表格header数据
@@ -425,6 +436,7 @@ export const useFunction = (
   elFormRef: Ref<FormInstance | null>,
   transformHeader: (headerLists: PowerfulFormPTHeaders[]) => void
 ) => {
+  let visible = true
   /**
    * @param {object} [params = {}] apis 请求的格外参数
    */
@@ -518,10 +530,24 @@ export const useFunction = (
     )
   }
 
+  const visibleFormTrigger = () => {
+    const formEl = elFormRef.value?.$el
+    const parentEl = formEl?.parentNode
+
+    if (parentEl && formEl) {
+      visible = !visible
+      const height = formEl.offsetHeight
+      parentEl.style.height = visible ? `${height}px` : '0px'
+    }
+
+    return visible
+  }
+
   return {
     submitForm,
     resetForm,
     refreshRender,
+    visibleFormTrigger,
     bindAttr(
       formItem: FormItem,
       formData: PowerfulFormData['formData'],
