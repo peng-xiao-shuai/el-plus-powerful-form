@@ -10,27 +10,27 @@
       href="https://peng-xiao-shuai.github.io/vite-vue-admin-docs/zh-CN/component/powerful-table-demo.html"
       >更多示例</a
     >
-    <div style="margin-bottom: 20px; display: flex">
-      <PowerfulForm
-        ref="powerfulForm"
-        extend-table="powerfulTable"
-        :property="{
-          inline: true,
-        }"
-      />
-
-      <el-button
-        type="primary"
-        @click="
-          powerfulTable?.resetList(
-            powerfulForm?.powerfulFormData.formData || {}
-          )
-        "
-      >
-        查询
-      </el-button>
-      <el-button @click="powerfulForm?.resetForm">重置</el-button>
-    </div>
+    <PowerfulForm
+      ref="powerfulForm"
+      extend-table="powerfulTable"
+      :property="{
+        inline: true,
+      }"
+    >
+      <template #last-item>
+        <el-button
+          type="primary"
+          @click="
+            powerfulTable?.resetList(
+              powerfulForm?.powerfulFormData.formData || {}
+            )
+          "
+        >
+          查询
+        </el-button>
+        <el-button @click="powerfulForm?.resetForm">重置</el-button>
+      </template>
+    </PowerfulForm>
 
     <PowerfulTable
       ref="powerfulTable"
@@ -111,9 +111,8 @@
           update: updateAdmin,
           added: updateAdmin,
         }"
-      />
-      <template #footer>
-        <div class="dialog-footer">
+      >
+        <template #last-item>
           <el-button
             v-if="state.dialogStatus !== 'view'"
             type="primary"
@@ -123,8 +122,8 @@
             确认
           </el-button>
           <el-button @click="state.dialogVisible = false">关闭</el-button>
-        </div>
-      </template>
+        </template>
+      </PowerfulForm>
     </el-drawer>
   </div>
 </template>
@@ -132,6 +131,7 @@
 <script setup lang="ts">
 import { ElMessage } from 'element-plus'
 import { deepClone } from 'el-plus-powerful-table-ts/es'
+import { Download, Upload } from '@element-plus/icons-vue'
 import { PowerfulForm } from '../packages/index'
 import { btnConfig, header, lists } from './indexData'
 import type { EmitEnum } from 'el-plus-powerful-table-ts/es/powerful-table/src/powerful-table-data'
@@ -251,7 +251,10 @@ const btnChange: Handlers<Lists>[EmitEnum.BtnPlusChange] = (e) => {
 }
 
 const handleRefresh: Handlers<Lists>[EmitEnum.BtnPlusRefresh] = () => {
-  ElMessage.success('触发刷新')
+  const bol = powerfulForm.value?.visibleFormTrigger()
+
+  btnConfigs.btnRightList[0].property.icon = markRaw(bol ? Upload : Download)
+  // ElMessage.success('触发刷新')
 }
 
 // 修改逻辑

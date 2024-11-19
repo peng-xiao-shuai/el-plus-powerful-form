@@ -1,14 +1,7 @@
 import { markRaw } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus/es'
 import { setData } from 'el-plus-powerful-table-ts'
-import {
-  Delete,
-  Edit,
-  Grid,
-  Plus,
-  Refresh,
-  View,
-} from '@element-plus/icons-vue'
+import { Delete, Edit, Grid, Plus, Upload, View } from '@element-plus/icons-vue'
 import { FormTypeEnum } from '../packages/index'
 import type { PowerfulFormPTHeaders } from '../packages/index'
 import type { BtnConfig, PowerfulTableFilter } from 'el-plus-powerful-table-ts'
@@ -37,14 +30,15 @@ export type Lists = {
   [s: string]: any
 }
 
-const btnConfig: BtnConfig.Config<Lists> = {
+const btnConfig = {
   // hidden: 'none',
   btnRightList: [
     {
+      // 这里使用 refresh 以触发刷新事件
       effect: 'refresh',
-      tip: '刷新',
+      // tip: '',
       property: {
-        icon: markRaw(Refresh),
+        icon: markRaw(Upload),
         type: 'primary',
       },
     },
@@ -101,7 +95,7 @@ const btnConfig: BtnConfig.Config<Lists> = {
       // tipContent: '立即执行批量删除'
     },
   ],
-}
+} satisfies BtnConfig.Config<Lists>
 
 const header: PowerfulFormPTHeaders<Lists>[] = [
   {
