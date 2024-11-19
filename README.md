@@ -12,6 +12,9 @@
 - 2.0.0 版本
 - - 支持上传功能
 
+## 1.0.7 20241119
+- 暴露 `visibleFormTrigger` 函数，用于控制表单显示或者隐藏
+
 ## 1.0.6 20241118
 - `submitForm` 函数添加参数 `options` 支持传递 `successMessage`, `errorMessage` 属性用于覆盖默认提示
 - 修复 `submitForm` 验证失败没用返回 false
