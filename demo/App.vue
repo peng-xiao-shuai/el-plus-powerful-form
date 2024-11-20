@@ -144,6 +144,7 @@ import type {
 import type { Lists } from './indexData'
 import type { PowerfulFormExpose } from '../packages/index'
 
+const { proxy } = getCurrentInstance()!
 // 所有页面选中数组
 const selectData = ref([{ a: 1 }, { a: 3 }])
 const selectCompare = reactive(['a', 'id'])
@@ -255,6 +256,11 @@ const handleRefresh: Handlers<Lists>[EmitEnum.BtnPlusRefresh] = () => {
   const bol = powerfulForm.value?.visibleFormTrigger()
 
   btnConfigs.btnRightList[0].property.icon = markRaw(bol ? Upload : Download)
+  headers[1].props[0]!.text = 'ID'
+  console.log(proxy, 'proxy')
+
+  powerfulForm.value?.refreshRender('powerfulTable', proxy!)
+
   // ElMessage.success('触发刷新')
 }
 
