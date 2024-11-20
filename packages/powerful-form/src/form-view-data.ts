@@ -436,6 +436,8 @@ export const useFunction = (
   elFormRef: Ref<FormInstance | null>,
   transformHeader: (headerLists: PowerfulFormPTHeaders[]) => void
 ) => {
+  const { proxy: _proxy_ } = getCurrentInstance()!
+
   let visible = true
   /**
    * @param {object} [params = {}] apis 请求的格外参数
@@ -516,9 +518,10 @@ export const useFunction = (
     refName: string = typeof props.extendTable === 'boolean'
       ? 'PTable'
       : props.extendTable!,
-    proxy = getCurrentInstance()?.proxy!
+    proxy?: ComponentPublicInstance
   ) => {
-    const PTExpose = useGetRefs<PowerfulTableExpose>(refName, proxy)
+    const _proxy = proxy ? proxy : _proxy_!
+    const PTExpose = useGetRefs<PowerfulTableExpose>(refName, _proxy)
 
     const stop = watch(
       () => PTExpose.value,

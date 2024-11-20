@@ -6,7 +6,7 @@
  * @Description:
 -->
 <template>
-  <div style="transition: height 0.3s; overflow: hidden">
+  <div style="transition: all 0.3s; overflow: hidden">
     <ElForm
       v-bind="property"
       ref="elFormRef"
