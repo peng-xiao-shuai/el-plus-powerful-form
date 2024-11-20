@@ -1,10 +1,10 @@
 import { markRaw } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus/es'
-import { setData } from 'el-plus-powerful-table-ts'
+import { setData } from 'el-plus-powerful-table'
 import { Delete, Edit, Grid, Plus, Upload, View } from '@element-plus/icons-vue'
 import { FormTypeEnum } from '../packages/index'
 import type { PowerfulFormPTHeaders } from '../packages/index'
-import type { BtnConfig, PowerfulTableFilter } from 'el-plus-powerful-table-ts'
+import type { BtnConfig, PowerfulTableFilter } from 'el-plus-powerful-table'
 
 export type Lists = {
   id?: number

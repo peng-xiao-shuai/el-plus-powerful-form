@@ -130,18 +130,18 @@
 
 <script setup lang="ts">
 import { ElMessage } from 'element-plus'
-import { deepClone } from 'el-plus-powerful-table-ts/es'
+import { deepClone } from 'el-plus-powerful-table'
 import { Download, Upload } from '@element-plus/icons-vue'
 import { PowerfulForm } from '../packages/index'
 import { btnConfig, header, lists } from './indexData'
-import type { EmitEnum } from 'el-plus-powerful-table-ts/es/powerful-table/src/powerful-table-data'
-import type { Lists } from './indexData'
-import type { PowerfulFormExpose } from '../packages/index'
 import type {
+  EmitEnum,
   Handlers,
   PowerfulTableExpose,
   PowerfulTableOperateData,
-} from 'el-plus-powerful-table-ts'
+} from 'el-plus-powerful-table'
+import type { Lists } from './indexData'
+import type { PowerfulFormExpose } from '../packages/index'
 
 // 所有页面选中数组
 const selectData = ref([{ a: 1 }, { a: 3 }])
