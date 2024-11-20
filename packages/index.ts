@@ -3,12 +3,12 @@ import { PowerfulFormSymbol } from './keys'
 import components from './components'
 import type { InjectProps } from '~/index'
 import type { App, Plugin } from 'vue'
-import type { FormType } from '#/form-view'
+import type { FormType } from './typings/form-view'
 export * from './powerful-form'
 export * from './locale/packages'
 export * from '~/utils'
 export * from '~/hooks/useGetRefs'
-export type * from '../typings/index'
+export type * from './typings/index'
 
 // 获取类型
 export const getType = <T>(target: T) =>

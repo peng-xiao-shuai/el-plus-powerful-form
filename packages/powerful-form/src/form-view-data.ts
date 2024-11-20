@@ -2,7 +2,7 @@ import { ElMessage, type FormInstance, type FormItemRule } from 'element-plus'
 import type {
   PowerfulTableExpose,
   PowerfulTableHeader,
-} from 'el-plus-powerful-table-ts'
+} from 'el-plus-powerful-table'
 import type {
   FormEventType,
   FormItem,

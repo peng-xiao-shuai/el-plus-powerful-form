@@ -7,7 +7,7 @@ import type {
   PowerfulTableHeaderProps,
   RateEmit,
   SwitchEmit,
-} from 'el-plus-powerful-table-ts'
+} from 'el-plus-powerful-table'
 import type {
   CheckboxGroupProps,
   DatePickerProps,

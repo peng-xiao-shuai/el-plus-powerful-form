@@ -15,21 +15,13 @@
     "skipLibCheck": true,
     "noEmit": true,
     "paths": {
-      // 避免dts构建TS报错
-      "element-plus": [
-        "node_modules/element-plus"
-      ],
       "~/*": [
         "./packages/*"
       ],
-      "#/*": [
-        "./typings/*"
-      ]
     },
     "types": [
       "@types/node",
       "vite/client",
-      "./typings/index",
     ],
     "lib": [
       "dom",
@@ -39,7 +31,6 @@
   "include": [
     "demo",
     "packages",
-    "typings",
     "global.d.ts",
     "auto-imports.d.ts",
     "components.d.ts"

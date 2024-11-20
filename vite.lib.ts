@@ -24,31 +24,16 @@ export default defineConfig(() => {
       }),
       dts({
         entryRoot: './packages',
-        bundledPackages: ['el-plus-powerful-table-ts'],
         outDir: [resolve(__dirname, './es'), resolve(__dirname, './lib')],
         //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
         tsconfigPath: './tsconfig.json',
+        copyDtsFiles: true,
         include: [
           'packages',
-          'typings',
           'global.d.ts',
           'auto-imports.d.ts',
           'components.d.ts',
         ],
-        beforeWriteFile: (filePath, content) => {
-          const upContent = content.replace(/'..\/typings/gi, "'./typings")
-          // .replace(/\/..\/typings/gi, '/typings')
-          // 修改typings文件夹中的内容
-          // if (filePath.includes('\\typings')) {
-          //   upContent = upContent.replace(/\/packages/g, '')
-          // }
-          return {
-            // 处理文件名
-            filePath: filePath.replace('\\typing', ''),
-            // 处理typings路径
-            content: upContent,
-          }
-        },
       }),
       Components({
         globs: ['**/src/*.{tsx|vue}'],
@@ -96,12 +81,7 @@ export default defineConfig(() => {
       // cssCodeSplit: true,
       rollupOptions: {
         //忽略打包vue文件
-        external: [
-          'vue',
-          'el-plus-powerful-table-ts',
-          './style.css',
-          /^(@e|e)lement-plus*/,
-        ],
+        external: ['vue', './style.css', /^(@e|e)lement-plus*/],
         input: ['./packages/index.ts'],
         output: [
           {
