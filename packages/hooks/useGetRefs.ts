@@ -68,13 +68,11 @@ export const useGetRefs = <T = any>(
     }
   }
 
-  nextTick(() => {
-    if (proxy) {
-      componentRef.value = getRefs(proxy.$)
-    } else {
-      console.error('错误，proxy 空')
-    }
-  })
+  if (proxy) {
+    componentRef.value = getRefs(proxy.$)
+  } else {
+    console.error('错误，proxy 空')
+  }
 
   return componentRef as Ref<UnwrapRef<T> | null>
 }

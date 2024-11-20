@@ -523,14 +523,8 @@ export const useFunction = (
     const _proxy = proxy ? proxy : _proxy_!
     const PTExpose = useGetRefs<PowerfulTableExpose>(refName, _proxy)
 
-    const stop = watch(
-      () => PTExpose.value,
-      (val) => {
-        if (val!.headerLists)
-          transformHeader(val!.headerLists as PowerfulFormPTHeaders[])
-        stop()
-      }
-    )
+    if (PTExpose.value?.headerLists)
+      transformHeader(PTExpose.value!.headerLists as PowerfulFormPTHeaders[])
   }
 
   const visibleFormTrigger = () => {
