@@ -16,7 +16,9 @@ export const FSwitch = defineComponent({
   name: 'FSwitch',
   props: componentProps(),
   setup(props) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.Switch>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.Switch>
+    )
 
     const { event } = useEvent<FormTypeEnum.Switch>({
       formData: props.formData,
@@ -27,7 +29,7 @@ export const FSwitch = defineComponent({
     return () => (
       <>
         <ElSwitch
-          style={data?.style || {}}
+          style={data.value?.style || {}}
           v-model={props.formData[props.formItem.prop!]}
           active-value={'1'}
           inactive-value={'0'}
@@ -40,7 +42,7 @@ export const FSwitch = defineComponent({
               index: props.index!,
               formItem: props.formItem,
             },
-            data?.property
+            data.value?.property
           )}
         />
       </>

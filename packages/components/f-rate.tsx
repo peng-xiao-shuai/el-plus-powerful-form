@@ -18,7 +18,9 @@ export const FRate = defineComponent({
   props: componentProps(),
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.Rate>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.Rate>
+    )
 
     const { event } = useEvent<FormTypeEnum.Rate>({
       formData: props.formData,
@@ -30,7 +32,7 @@ export const FRate = defineComponent({
       <>
         <ElRate
           v-model={props.formData[props.formItem.prop!]}
-          style={data?.style || {}}
+          style={data.value?.style || {}}
           allow-half
           onChange={(arg: number) => {
             emit('update:modelValue', arg)
@@ -45,7 +47,7 @@ export const FRate = defineComponent({
               index: props.index!,
               formItem: props.formItem,
             },
-            data?.property
+            data.value?.property
           )}
         />
       </>

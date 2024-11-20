@@ -18,7 +18,9 @@ export const FDatePicker = defineComponent({
   name: 'FDatePicker',
   props: componentProps(),
   setup(props) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.DatePicker>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.DatePicker>
+    )
 
     const { event } = useEvent<FormTypeEnum.DatePicker>({
       formData: props.formData,
@@ -30,7 +32,7 @@ export const FDatePicker = defineComponent({
       <>
         <ElDatePicker
           v-model={props.formData[props.formItem.prop!]}
-          style={data?.style || (props.inline ? {} : { width: '100%' })}
+          style={data.value?.style || (props.inline ? {} : { width: '100%' })}
           // ElDatePicker 未提供事件类型，但是不影响正常使用
           start-placeholder="开始时间"
           end-placeholder="结束时间"
@@ -50,7 +52,7 @@ export const FDatePicker = defineComponent({
               index: props.index!,
               formItem: props.formItem,
             },
-            data?.property
+            data.value?.property
           )}
         />
       </>

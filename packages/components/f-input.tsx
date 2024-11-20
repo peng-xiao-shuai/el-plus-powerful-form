@@ -18,7 +18,9 @@ export const FInput = defineComponent({
   props: componentProps(),
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.Input>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.Input>
+    )
 
     const { event } = useEvent<FormTypeEnum.Input>({
       formData: props.formData,
@@ -42,11 +44,11 @@ export const FInput = defineComponent({
       <>
         <ElInput
           v-slots={{
-            [data?.slot as string]: () => (
-              <span style={{ padding: '0 10px' }}>{data?.symbol}</span>
+            [data.value?.slot as string]: () => (
+              <span style={{ padding: '0 10px' }}>{data.value?.symbol}</span>
             ),
           }}
-          style={data?.style || {}}
+          style={data.value?.style || {}}
           placeholder={`请输入${clearSymbol(props.formItem.text)}`}
           v-model={modelValue.value}
           onBlur={(...arg: any) => event('blur', ...arg)}
@@ -67,7 +69,7 @@ export const FInput = defineComponent({
                 index: props.index!,
                 formItem: props.formItem,
               },
-              data?.property
+              data.value?.property
             ),
           }}
         ></ElInput>

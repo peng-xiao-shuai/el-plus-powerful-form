@@ -19,7 +19,9 @@ export const FRadio = defineComponent({
   name: 'FRadio',
   props: componentProps(),
   setup(props) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.Radio>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.Radio>
+    )
 
     const { event } = useEvent<FormTypeEnum.Radio>({
       formData: props.formData,
@@ -31,7 +33,7 @@ export const FRadio = defineComponent({
       <>
         <ElRadioGroup
           v-model={props.formData[props.formItem.prop!]}
-          style={data?.style || {}}
+          style={data.value?.style || {}}
           onChange={(...arg: any) => event('change', ...arg)}
           {...isProperty(
             {
@@ -39,10 +41,10 @@ export const FRadio = defineComponent({
               index: props.index!,
               formItem: props.formItem,
             },
-            data?.property
+            data.value?.property
           )}
         >
-          {data?.options.map((radio) => (
+          {data.value?.options.map((radio) => (
             <ElRadio
               label={radio.label}
               disabled={isBolOrFun(radio.disabled, {

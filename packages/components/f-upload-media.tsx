@@ -16,7 +16,9 @@ export const FUploadMedia = defineComponent({
   name: 'FUploadMedia',
   props: componentProps(),
   setup(props) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.UploadMedia>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.UploadMedia>
+    )
 
     const { event } = useEvent<FormTypeEnum.UploadMedia>({
       formData: props.formData,
@@ -26,7 +28,7 @@ export const FUploadMedia = defineComponent({
     return () => (
       <>
         <UploadMedia
-          style={data?.style || {}}
+          style={data.value?.style || {}}
           onFilesChange={(...arg: any) => {
             event('files-change', ...arg)
           }}
@@ -36,7 +38,7 @@ export const FUploadMedia = defineComponent({
               index: props.index!,
               formItem: props.formItem,
             },
-            data?.property
+            data.value?.property
           )}
         />
       </>

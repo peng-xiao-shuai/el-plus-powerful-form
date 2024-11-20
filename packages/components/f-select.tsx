@@ -19,7 +19,9 @@ export const FSelect = defineComponent({
   name: 'FSelect',
   props: componentProps(),
   setup(props) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.Select>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.Select>
+    )
 
     const { event } = useEvent<FormTypeEnum.Select>({
       formData: props.formData,
@@ -32,20 +34,21 @@ export const FSelect = defineComponent({
         <ElSelectV2
           v-model={props.formData[props.formItem.prop!]}
           style={
-            data?.style ||
+            data.value?.style ||
             (props.inline ? { width: '192px' } : { width: '100%' })
           }
-          options={data?.options || []}
+          options={data.value?.options || []}
           onChange={(...arg: any) => {
             event('change', ...arg)
           }}
           placeholder={`请选择${clearSymbol(props.formItem.text)}`}
           v-slots={{
             default: () =>
-              data?.slots?.default?.(h, props.formData, props.index!),
-            empty: () => data?.slots?.empty?.(h, props.formData, props.index!),
+              data.value?.slots?.default?.(h, props.formData, props.index!),
+            empty: () =>
+              data.value?.slots?.empty?.(h, props.formData, props.index!),
             prefix: () =>
-              data?.slots?.prefix?.(h, props.formData, props.index!),
+              data.value?.slots?.prefix?.(h, props.formData, props.index!),
           }}
           clearable
           {...isProperty(
@@ -54,7 +57,7 @@ export const FSelect = defineComponent({
               index: props.index!,
               formItem: props.formItem,
             },
-            data?.property
+            data.value?.property
           )}
         />
       </>

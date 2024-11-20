@@ -20,7 +20,9 @@ export const FCheckbox = defineComponent({
   name: 'FCheckbox',
   props: componentProps(),
   setup(props) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.Checkbox>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.Checkbox>
+    )
     const { event } = useEvent<FormTypeEnum.Checkbox>({
       formData: props.formData,
       index: props.index!,
@@ -31,7 +33,7 @@ export const FCheckbox = defineComponent({
       <>
         <ElCheckboxGroup
           v-model={props.formData[props.formItem.prop!]}
-          style={data?.style || {}}
+          style={data.value?.style || {}}
           onChange={(...arg: any) => event('change', ...arg)}
           {...isProperty(
             {
@@ -39,10 +41,10 @@ export const FCheckbox = defineComponent({
               index: props.index!,
               formItem: props.formItem,
             },
-            data?.property
+            data.value?.property
           )}
         >
-          {data?.options.map((checkbox) => (
+          {data.value?.options.map((checkbox) => (
             <ElCheckbox
               label={checkbox.label}
               disabled={isBolOrFun(checkbox.disabled, {

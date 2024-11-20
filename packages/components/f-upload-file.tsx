@@ -16,7 +16,9 @@ export const FUploadFile = defineComponent({
   name: 'FUploadFile',
   props: componentProps(),
   setup(props) {
-    const data = props.formItem.data as SetDataType<FormTypeEnum.UploadFile>
+    const data = computed(
+      () => props.formItem.data as SetDataType<FormTypeEnum.UploadFile>
+    )
 
     const { event } = useEvent<FormTypeEnum.UploadFile>({
       formData: props.formData,
@@ -26,7 +28,7 @@ export const FUploadFile = defineComponent({
     return () => (
       <>
         <UploadFile
-          style={data?.style || {}}
+          style={data.value?.style || {}}
           onUploadFileSuccess={(...arg: any) => {
             event('upload-file-success', ...arg)
           }}
@@ -39,7 +41,7 @@ export const FUploadFile = defineComponent({
               index: props.index!,
               formItem: props.formItem,
             },
-            data?.property
+            data.value?.property
           )}
         />
       </>
