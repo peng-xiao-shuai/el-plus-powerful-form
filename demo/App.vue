@@ -13,6 +13,7 @@
     <PowerfulForm
       ref="powerfulForm"
       extend-table="powerfulTable"
+      show-type="query"
       :property="{
         inline: true,
       }"
