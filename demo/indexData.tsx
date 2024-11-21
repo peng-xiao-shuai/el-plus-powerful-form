@@ -454,7 +454,7 @@ const header: PowerfulFormPTHeaders<Lists>[] = [
             params: {
               emit: 'update',
             },
-            beforeClick({ row, index, btnIndex, props, params }, resolve) {
+            beforeClick(_, resolve) {
               ElMessageBox.confirm('正在进行修改操作，确认要修改？', '提示', {
                 confirmButtonText: 'OK',
                 cancelButtonText: 'Cancel',
