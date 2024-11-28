@@ -280,6 +280,7 @@ export const useFormViewState = (props: PowerfulFormProps) => {
         if (PTHeaderProps) {
           if (!formItem.data?.options && Array.isArray(PTHeaderProps.filters)) {
             formItem.data!.options = PTHeaderProps.filters.map((f) => ({
+              ...f,
               label: f.value,
               value: f.key,
             }))
