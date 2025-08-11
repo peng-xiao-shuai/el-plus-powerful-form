@@ -6,7 +6,6 @@
  * @Description:
  */
 import { ElDatePicker } from 'element-plus'
-import 'element-plus/theme-chalk/src/date-picker.scss'
 import type { FormTypeEnum, SetDataType } from '~/index'
 import {
   componentProps,

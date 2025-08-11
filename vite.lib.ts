@@ -38,11 +38,7 @@ export default defineConfig(() => {
       Components({
         globs: ['**/src/*.{tsx|vue}'],
         include: [/\.(vue|tsx)$/, /\.vue\?vue/],
-        resolvers: [
-          ElementPlusResolver({
-            importStyle: 'sass',
-          }),
-        ],
+        resolvers: [ElementPlusResolver()],
       }),
       (function injectCss() {
         return {
@@ -50,6 +46,20 @@ export default defineConfig(() => {
           transform(code: string, id: string) {
             if (id.includes('packages/index.ts')) {
               let scssUrl = ''
+              // 使用到的scss文件
+              ;[
+                'checkbox',
+                'checkbox-group',
+                'date-picker',
+                'radio',
+                'radio-group',
+                'select-v2',
+                'switch',
+                'input',
+                'rate',
+              ].forEach((item) => {
+                scssUrl += `import 'element-plus/theme-chalk/el-${item}.css'\n`
+              })
               scssUrl += `import './style.css'\n`
               code = scssUrl + code
             }

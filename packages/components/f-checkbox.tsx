@@ -6,8 +6,6 @@
  * @Description:
  */
 import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
-import 'element-plus/theme-chalk/src/checkbox-group.scss'
-import 'element-plus/theme-chalk/src/checkbox.scss'
 import type { FormTypeEnum, SetDataType } from '~/index'
 import { isBolOrFun } from '~/index'
 import {

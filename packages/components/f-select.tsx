@@ -6,8 +6,6 @@
  * @Description:
  */
 import { ElSelectV2 } from 'element-plus'
-import 'element-plus/theme-chalk/src/select-v2.scss'
-
 import type { FormTypeEnum, SetDataType } from '~/index'
 import { clearSymbol } from '~/utils'
 import {

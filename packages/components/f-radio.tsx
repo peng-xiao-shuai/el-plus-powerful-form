@@ -6,8 +6,6 @@
  * @Description:
  */
 import { ElRadio, ElRadioGroup } from 'element-plus'
-import 'element-plus/theme-chalk/src/radio-group.scss'
-import 'element-plus/theme-chalk/src/radio.scss'
 import type { FormTypeEnum, SetDataType } from '~/index'
 import { isBolOrFun } from '~/index'
 import {
