@@ -142,7 +142,7 @@ import type {
   PowerfulTableOperateData,
 } from 'el-plus-powerful-table'
 import type { Lists } from './indexData'
-import type { PowerfulFormExpose } from '../packages/index'
+import type { PTHeadersProps, PowerfulFormExpose } from '../packages/index'
 
 const { proxy } = getCurrentInstance()!
 // 所有页面选中数组
@@ -256,7 +256,7 @@ const handleRefresh: Handlers<Lists>[EmitEnum.BtnPlusRefresh] = () => {
   const bol = powerfulForm.value?.visibleFormTrigger()
 
   btnConfigs.btnRightList[0].property.icon = markRaw(bol ? Upload : Download)
-  headers[1].props[0]!.text = 'ID'
+  ;(headers[1].props as PTHeadersProps<Lists>[])[0]!.text = 'ID'
   console.log(proxy, 'proxy')
 
   powerfulForm.value?.refreshRender('powerfulTable', proxy!)
