@@ -3,6 +3,7 @@ import type {
   PowerfulTableExpose,
   PowerfulTableHeader,
 } from 'el-plus-powerful-table'
+import type { ComponentPublicInstance, PropType, Ref } from 'vue'
 import type {
   FormEventType,
   FormItem,
