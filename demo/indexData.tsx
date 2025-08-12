@@ -298,6 +298,7 @@ const header: PowerfulFormPTHeaders<Lists>[] = [
   },
   {
     label: '驱动方式',
+    defaultShow: false,
     props: {
       prop: 'driveType',
       filters: [
