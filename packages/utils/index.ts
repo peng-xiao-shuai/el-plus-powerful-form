@@ -9,15 +9,6 @@ import type { FormItem, FormType, FunBol, PowerfulFormData } from '~/index'
 import type { FormItemRule } from 'element-plus'
 import { FormTypeEnum } from '~/index'
 import { LangKey } from '~/locale/lang'
-import {
-  FCheckbox,
-  FDatePicker,
-  FInput,
-  FRadio,
-  FRate,
-  FSelect,
-  FSwitch,
-} from '~/components'
 
 /**
  * 校验规则
@@ -97,14 +88,14 @@ export const isTypeProtect = <T, P extends T>(
  */
 export const matchComponents = (type: Exclude<keyof FormType, 'slot'>) => {
   return {
-    [FormTypeEnum.Switch]: FSwitch,
-    [FormTypeEnum.Input]: FInput,
-    [FormTypeEnum.Textarea]: FInput,
-    [FormTypeEnum.Rate]: FRate,
-    [FormTypeEnum.Select]: FSelect,
-    [FormTypeEnum.DatePicker]: FDatePicker,
-    [FormTypeEnum.Radio]: FRadio,
-    [FormTypeEnum.Checkbox]: FCheckbox,
+    [FormTypeEnum.Switch]: 'FSwitch',
+    [FormTypeEnum.Input]: 'FInput',
+    [FormTypeEnum.Textarea]: 'FInput',
+    [FormTypeEnum.Rate]: 'FRate',
+    [FormTypeEnum.Select]: 'FSelect',
+    [FormTypeEnum.DatePicker]: 'FDatePicker',
+    [FormTypeEnum.Radio]: 'FRadio',
+    [FormTypeEnum.Checkbox]: 'FCheckbox',
     [FormTypeEnum.UploadFile]: 'FUploadFile',
     [FormTypeEnum.UploadMedia]: 'FUploadMedia',
   }[type]

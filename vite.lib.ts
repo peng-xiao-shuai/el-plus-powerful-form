@@ -41,6 +41,8 @@ export default defineConfig(() => {
               let scssUrl = ''
               // 使用到的scss文件
               ;[
+                'form',
+                'form-item',
                 'checkbox',
                 'checkbox-group',
                 'date-picker',
