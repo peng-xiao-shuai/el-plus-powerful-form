@@ -23,17 +23,12 @@ export default defineConfig(({ mode }) => {
       }),
       Components({
         include: [/\.vue$/, /\.vue\?vue/, /\.tsx$/],
-        resolvers: [
-          ElementPlusResolver({
-            importStyle: 'sass',
-          }),
-        ],
+        resolvers: [ElementPlusResolver()],
       }),
     ],
     resolve: {
       alias: {
         '~': path.resolve('./packages'),
-        '#': path.resolve('./typings'),
       },
     },
     base: mode === 'production' ? '/el-plus-powerful-table/' : '/',

@@ -27,7 +27,6 @@ export default defineConfig(() => {
         outDir: [resolve(__dirname, './es'), resolve(__dirname, './lib')],
         //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
         tsconfigPath: './tsconfig.json',
-        copyDtsFiles: true,
         include: [
           'packages',
           'global.d.ts',
@@ -72,7 +71,6 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '~': path.resolve('./packages'),
-        '#': path.resolve('./typings'),
       },
     },
     // 控制台打印
