@@ -3,7 +3,7 @@ import type {
   PowerfulTableExpose,
   PowerfulTableHeader,
 } from 'el-plus-powerful-table'
-import type { ComponentPublicInstance, PropType, Ref } from 'vue'
+import type { ComponentPublicInstance, ComputedRef, PropType, Ref } from 'vue'
 import type {
   FormEventType,
   FormItem,
@@ -17,6 +17,7 @@ import type {
 } from '~/index'
 import { LangKey, useLocale } from '~/locale/lang'
 import {
+  FormTypeEnum,
   clearSymbol,
   deepClone,
   isTypeProtect,
@@ -24,20 +25,6 @@ import {
   useGetRefs,
   verifyFormItemRule,
 } from '~/index'
-
-export enum FormTypeEnum {
-  Select = 'select',
-  Input = 'input',
-  Switch = 'switch',
-  Rate = 'rate',
-  Slot = 'slot',
-  Textarea = 'textarea',
-  DatePicker = 'datePicker',
-  UploadFile = 'uploadFile',
-  Radio = 'radio',
-  Checkbox = 'checkbox',
-  UploadMedia = 'uploadMedia',
-}
 
 /**
  * 定义初始数据对象，用于重置表单
@@ -408,7 +395,7 @@ export const useFormViewState = (props: PowerfulFormProps) => {
   /**
    * 更具显示类型过滤
    */
-  const formRenderItems = computed(() =>
+  const formRenderItems: ComputedRef<FormItem[]> = computed(() =>
     formViewData.formItems.filter(
       (item) =>
         (Array.isArray(item.showType)

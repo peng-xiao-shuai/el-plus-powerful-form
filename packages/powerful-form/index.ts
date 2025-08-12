@@ -1,14 +1,25 @@
-import FormViewComponent from './src/form-view.vue'
+import PowerfulFormComponent from './src/form-view.vue'
 import type { SFCWithInstall } from 'element-plus/es/utils'
 import type { App } from 'vue'
-export { FormTypeEnum } from './src/form-view-data'
-
-// 定义 install 方法， App 作为参数
-FormViewComponent.install = (app: App): void => {
-  app.component('PowerfulForm', FormViewComponent)
+export enum FormTypeEnum {
+  Select = 'select',
+  Input = 'input',
+  Switch = 'switch',
+  Rate = 'rate',
+  Slot = 'slot',
+  Textarea = 'textarea',
+  DatePicker = 'datePicker',
+  UploadFile = 'uploadFile',
+  Radio = 'radio',
+  Checkbox = 'checkbox',
+  UploadMedia = 'uploadMedia',
 }
-const PowerfulForm = FormViewComponent as SFCWithInstall<
-  typeof FormViewComponent
+// 定义 install 方法， App 作为参数
+PowerfulFormComponent.install = (app: App): void => {
+  app.component('PowerfulForm', PowerfulFormComponent)
+}
+const PowerfulForm = PowerfulFormComponent as SFCWithInstall<
+  typeof PowerfulFormComponent
 >
 
-export { FormViewComponent, PowerfulForm, PowerfulForm as default }
+export { PowerfulFormComponent, PowerfulForm, PowerfulForm as default }

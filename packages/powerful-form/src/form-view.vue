@@ -59,13 +59,13 @@
 </template>
 
 <script setup lang="ts">
+import { formViewProps, useFormViewState, useFunction } from './form-view-data'
 import {
   FormTypeEnum,
-  formViewProps,
-  useFormViewState,
-  useFunction,
-} from './form-view-data'
-import { clearSymbol, componentRegister, matchComponents } from '~/index'
+  clearSymbol,
+  componentRegister,
+  matchComponents,
+} from '~/index'
 
 const { appContext } = getCurrentInstance()!
 componentRegister(appContext.app)
@@ -94,7 +94,11 @@ defineExpose({
   refreshRender,
 })
 </script>
-
+<script lang="ts">
+export default {
+  name: 'PowerfulForm',
+}
+</script>
 <style scoped>
 .el-form--inline .el-form-item {
   margin-right: 10px;
