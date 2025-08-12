@@ -59,7 +59,9 @@
 </template>
 
 <script setup lang="ts">
+import { ElForm, ElFormItem } from 'element-plus'
 import { formViewProps, useFormViewState, useFunction } from './form-view-data'
+import { FRenderJsx } from '~/components'
 import {
   FormTypeEnum,
   clearSymbol,

@@ -5,7 +5,6 @@ import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig(() => {
@@ -27,18 +26,13 @@ export default defineConfig(() => {
         outDir: [resolve(__dirname, './es'), resolve(__dirname, './lib')],
         //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
         tsconfigPath: './tsconfig.json',
-        include: [
-          'packages',
-          'global.d.ts',
-          'auto-imports.d.ts',
-          'components.d.ts',
-        ],
+        include: ['packages', 'global.d.ts', 'auto-imports.d.ts'],
       }),
-      Components({
-        globs: ['**/src/*.{tsx|vue}'],
-        include: [/\.(vue|tsx)$/, /\.vue\?vue/],
-        resolvers: [ElementPlusResolver()],
-      }),
+      // Components({
+      //   globs: ['**/src/*.{tsx|vue}'],
+      //   include: [/\.(vue|tsx)$/, /\.vue\?vue/],
+      //   resolvers: [ElementPlusResolver()],
+      // }),
       (function injectCss() {
         return {
           name: 'injectCss',
