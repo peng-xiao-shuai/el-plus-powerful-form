@@ -3,10 +3,10 @@ import fs from 'fs'
 
 // 获取oldFile文件夹，newFile的绝对路径
 const OriginFilePath = [
-  // {
-  //   path: 'typings',
-  //   isFile: false,
-  // },
+  {
+    path: './packages/typings',
+    isFile: false,
+  },
   {
     path: 'global.d.ts',
     isFile: true,
@@ -17,7 +17,7 @@ const OriginFilePath = [
   },
 ]
 const CopyFilePath = [
-  // ['es/typings', 'lib/typings'],
+  ['es/typings', 'lib/typings'],
   ['es/global.d.ts', 'lib/global.d.ts'],
   ['es/auto-imports.d.ts', 'lib/auto-imports.d.ts'],
 ]

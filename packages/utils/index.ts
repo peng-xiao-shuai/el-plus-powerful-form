@@ -7,7 +7,7 @@
  */
 import type { FormItem, FormType, FunBol, PowerfulFormData } from '~/index'
 import type { FormItemRule } from 'element-plus'
-import { FormTypeEnum } from '~/powerful-form/src/form-view-data'
+import { FormTypeEnum } from '~/index'
 import { LangKey } from '~/locale/lang'
 
 /**

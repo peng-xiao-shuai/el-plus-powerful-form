@@ -16,6 +16,15 @@ import { FRenderJsx } from './f-render-jsx'
 // import { FUploadFile } from './f-upload-file'
 // import { FUploadMedia } from './f-upload-media'
 
+export * from './f-input'
+export * from './f-switch'
+export * from './f-rate'
+export * from './f-select'
+export * from './f-date-picker'
+export * from './f-radio'
+export * from './f-checkbox'
+export * from './f-render-jsx'
+
 export default [
   FInput,
   FSwitch,

@@ -1,4 +1,4 @@
-import type { FormTypeEnum, verify } from '~/index'
+import type { FormTypeEnum, verify } from '../index'
 import type { h as createElement } from 'vue'
 import type {
   InputEmit,
