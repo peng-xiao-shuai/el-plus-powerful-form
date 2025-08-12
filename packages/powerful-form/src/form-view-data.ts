@@ -357,7 +357,7 @@ export const useFormViewState = (props: PowerfulFormProps) => {
               typeof val === 'boolean' ? 'PTable' : val,
               proxy
             ).then((res) => {
-              headerLists = res?.headerLists as PowerfulFormPTHeaders[]
+              headerLists = res?.props.header as PowerfulFormPTHeaders[]
 
               transformHeader(headerLists)
             })
@@ -524,8 +524,9 @@ export const useFunction = (
     const _proxy = proxy ? proxy : _proxy_!
     const PTExpose = useGetRefs<PowerfulTableExpose>(refName, _proxy)
 
-    if (PTExpose.value?.headerLists)
-      transformHeader(PTExpose.value!.headerLists as PowerfulFormPTHeaders[])
+    if (PTExpose.value?.props.header) {
+      transformHeader(PTExpose.value?.props.header as PowerfulFormPTHeaders[])
+    }
   }
 
   const visibleFormTrigger = () => {

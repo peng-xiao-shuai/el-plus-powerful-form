@@ -1,4 +1,4 @@
-import type { FormTypeEnum, verify } from 'el-plus-powerful-form'
+import type { FormTypeEnum, verify } from '~/index'
 import type { h as createElement } from 'vue'
 import type {
   InputEmit,
@@ -29,6 +29,7 @@ import type {
   VNode,
   WatchStopHandle,
 } from 'vue'
+import type { JSX } from 'vue/jsx-runtime'
 
 // 组件注入数据
 export type InjectProps = {
