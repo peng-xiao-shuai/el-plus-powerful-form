@@ -122,14 +122,16 @@ export const useFormViewState = (props: PowerfulFormProps) => {
   const { t } = useLocale()
 
   onMounted(() => {
-    setTimeout(() => {
-      const formEl = elFormRef.value?.$el
-      const parentEl = formEl?.parentNode
+    if (props.showType === 'query') {
+      setTimeout(() => {
+        const formEl = elFormRef.value?.$el
+        const parentEl = formEl?.parentNode
 
-      if (parentEl && formEl) {
-        parentEl.style.height = `${formEl.offsetHeight}px`
-      }
-    }, 100)
+        if (parentEl && formEl) {
+          parentEl.style.height = `${formEl.offsetHeight}px`
+        }
+      }, 100)
+    }
   })
 
   /**
