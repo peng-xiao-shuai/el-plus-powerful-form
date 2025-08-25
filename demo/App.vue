@@ -133,7 +133,7 @@
 import { ElMessage } from 'element-plus'
 import { deepClone } from 'el-plus-powerful-table'
 import { Download, Upload } from '@element-plus/icons-vue'
-import { PowerfulForm } from '../packages/index'
+import { PowerfulForm } from '../es'
 import { btnConfig, header, lists } from './indexData'
 import type {
   EmitEnum,
@@ -220,11 +220,12 @@ const batchOperate: Handlers<Lists>[EmitEnum.BatchOperate] = (e) => {
   console.log('批量操作', e, e.ids)
 }
 const handlerBtnClick: Handlers<Lists>[EmitEnum.BtnClick] = (e) => {
-  ElMessage.success('按钮修改操作，参数详情，查看控制台')
+  ElMessage.success('按钮操作，参数详情，查看控制台')
   if (e.params.emit === 'update') {
     state.dialogVisible = true
     state.dialogStatus = 'update'
     data.form = deepClone(e.row)
+    console.log(data.form, 'data.form')
   } else if (e.params.emit === 'view') {
     state.dialogVisible = true
     state.dialogStatus = 'view'

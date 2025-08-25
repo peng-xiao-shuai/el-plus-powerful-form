@@ -180,6 +180,13 @@ const header: PowerfulFormPTHeaders<Lists>[] = [
         },
       },
       {
+        prop: 'desc',
+        formItem: {
+          type: FormTypeEnum.Textarea,
+          visible: (row) => row.brand === 'BMW',
+        },
+      },
+      {
         type: 'href',
         prop: 'href',
         text: '型号：',

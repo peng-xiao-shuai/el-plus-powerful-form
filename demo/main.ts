@@ -8,9 +8,5 @@ import App from './App.vue'
 // import 'element-plus/theme-chalk/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 const app = createApp(App)
-// app.use(ElementPlus, {
-//   size: 'large',
-//   locale: zh,
-// })
 app.use(PowerfulTable)
 app.mount('#app')
