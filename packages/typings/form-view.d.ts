@@ -672,23 +672,23 @@ export type FormItemData =
       data?: SetDataType<FormTypeEnum.UploadMedia>
     }
 
-export type FormItem = {
+export type FormItem<Row = any> = {
   /**
    * el-form-item prop 属性。默认读取 PowerfulTableHeaderProps 下 prop
    */
-  prop: PowerfulTableHeaderProps<any>['prop']
+  prop: PowerfulTableHeaderProps<Row>['prop']
   /**
    * el-form-item label 属性。默认读取 PowerfulTableHeader 下 label
    */
-  text: PowerfulTableHeaderProps<any>['text']
+  text: PowerfulTableHeaderProps<Row>['text']
   /**
    * 插槽名称。默认读取 PowerfulTableHeaderProps 下 slotName
    */
-  slotName?: PowerfulTableHeaderProps<any>['slotName']
+  slotName?: PowerfulTableHeaderProps<Row>['slotName']
   /**
    * 渲染函数
    */
-  render?: PowerfulTableHeaderProps<any>['render']
+  render?: PowerfulTableHeaderProps<Row>['render']
   /**
    * flex-basis 属性，当期元素宽度占比，当两个相邻的元素为 `48%` 时，则这个两个元素在一行
    * @default '100%'
@@ -699,6 +699,11 @@ export type FormItem = {
    * @default ''
    */
   showType?: string | string[]
+  /**
+   * 是否显示，优先级比 showType 高
+   * @default undefined
+   */
+  visible?: (row: Row) => boolean
   /**
    * 表单数据数据默认值，默认寻找 PowerfulFormProps
    * @default {}
@@ -728,7 +733,7 @@ export type PTHeadersProps<Row = any> = PowerfulTableHeaderProps<Row> & {
   /**
    * 表单配置项
    */
-  formItem?: Partial<FormItem>
+  formItem?: Partial<FormItem<Row>>
 }
 
 export type PowerfulFormListApi = (params: object) => Promise<any>

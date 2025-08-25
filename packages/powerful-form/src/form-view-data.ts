@@ -396,13 +396,14 @@ export const useFormViewState = (props: PowerfulFormProps) => {
    * 更具显示类型过滤
    */
   const formRenderItems: ComputedRef<FormItem[]> = computed(() =>
-    formViewData.formItems.filter(
-      (item) =>
-        (Array.isArray(item.showType)
-          ? item.showType.includes(props.showType || '')
-          : item.showType === props.showType) ||
-        !props.showType ||
-        !item.showType
+    formViewData.formItems.filter((item) =>
+      typeof item.visible === 'undefined'
+        ? (Array.isArray(item.showType)
+            ? item.showType.includes(props.showType || '')
+            : item.showType === props.showType) ||
+          !props.showType ||
+          !item.showType
+        : item.visible(formViewData.formData)
     )
   )
 
