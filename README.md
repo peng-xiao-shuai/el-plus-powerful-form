@@ -12,6 +12,9 @@
 - 2.0.0 版本
 - - 支持上传功能
 
+## 1.0.20 20250826
+- 修复 `PowerfulFormExpose['$ref']` 中组件类型错误
+
 ## 1.0.19 20250825
 - `FormItem` 中新增 `visible` 属性（`visible?: (row: Row) => boolean`），用于判断是否显示。优先级比 `showType` 高。
 - `showType == 'query'` 的情况下才会执行设置初始组件高度。
