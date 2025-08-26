@@ -25,6 +25,7 @@ import type {
 import type {
   CSSProperties,
   ComponentPublicInstance,
+  Ref,
   SetupContext,
   VNode,
   WatchStopHandle,
