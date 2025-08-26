@@ -819,7 +819,7 @@ export interface PowerfulFormExpose {
     /**
      * 表单 Ref 实例
      */
-    elFormRef: Ref<FormInstance>
+    elFormRef: Ref<Ref<FormInstance>>
   }
   /**
    * 组件 props

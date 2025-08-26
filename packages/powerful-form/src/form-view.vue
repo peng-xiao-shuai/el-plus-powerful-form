@@ -89,7 +89,7 @@ defineExpose({
   },
   props,
   powerfulFormData: formViewData,
-  formItems: formRenderItems.value,
+  formItems: formRenderItems,
   visibleFormTrigger,
   submitForm,
   resetForm,
