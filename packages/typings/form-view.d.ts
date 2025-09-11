@@ -843,6 +843,10 @@ export interface PowerfulFormExpose {
     options?: {
       successMessage?: string
       errorMessage?: string
+      /**
+       * Api 接口触发后，成功返回 success 否则返回 error。第二个参数返回接口返回的数据（如果存在，如果有拦截器，受拦截器影响）
+       */
+      cb: (type: 'success' | 'error', res?: any) => void
     }
   ) => Promise<boolean>
 

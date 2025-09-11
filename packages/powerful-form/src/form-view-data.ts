@@ -439,6 +439,7 @@ export const useFunction = (
     options?: {
       successMessage?: string
       errorMessage?: string
+      cb: (type: 'success' | 'error', res?: any) => void
     }
   ) => {
     elFormRef
@@ -460,15 +461,17 @@ export const useFunction = (
                   ...params,
                   ...formData.value,
                 })
-                  .then(() => {
+                  .then((res) => {
                     if (options) {
                       ElMessage.success(options.successMessage || '提交成功！')
                     }
+                    options?.cb('success', res)
                   })
-                  .catch(() => {
+                  .catch((err) => {
                     if (options) {
                       ElMessage.error(options.errorMessage || '提交失败！')
                     }
+                    options?.cb('error', err)
                   })
               } else console.error(`apis.${props.showType} 不存在`)
             } else
@@ -478,15 +481,17 @@ export const useFunction = (
           } else {
             props
               .apis?.({ ...params, ...formData.value })
-              .then(() => {
+              .then((res) => {
                 if (options) {
                   ElMessage.success(options.successMessage || '提交成功！')
                 }
+                options?.cb('success', res)
               })
-              .catch(() => {
+              .catch((err) => {
                 if (options) {
                   ElMessage.error(options.errorMessage || '提交失败！')
                 }
+                options?.cb('error', err)
               })
           }
         }
