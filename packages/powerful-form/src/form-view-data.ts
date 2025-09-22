@@ -405,7 +405,7 @@ export const useFormViewState = (props: PowerfulFormProps) => {
             : item.showType === props.showType) ||
           !props.showType ||
           !item.showType
-        : item.visible(formViewData.formData)
+        : item.visible(formViewData.formData, props.showType)
     )
   )
 

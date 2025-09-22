@@ -12,6 +12,9 @@
 - 2.0.0 版本
 - - 支持上传功能
 
+## 1.0.24 20250922
+- `FormItem[visible]` 属性补充第二个参数 `showType`. `showType` 为当前 `props.showType`
+
 ## 1.0.23 20250911
 - `PowerfulFormExpose['submitForm']` 第二个参数 `options` 添加 `cb` 属性. 类型为 `(type: 'success' | 'error', res?: any) => void`
 

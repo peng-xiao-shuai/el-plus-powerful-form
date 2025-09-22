@@ -704,7 +704,7 @@ export type FormItem<Row = any> = {
    * 是否显示，优先级比 showType 高
    * @default undefined
    */
-  visible?: (row: Row) => boolean
+  visible?: (row: Row, showType?: string) => boolean
   /**
    * 表单数据数据默认值，默认寻找 PowerfulFormProps
    * @default {}
