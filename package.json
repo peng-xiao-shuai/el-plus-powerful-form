@@ -1,6 +1,6 @@
 {
   "name": "el-plus-powerful-form",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "private": false,
   "keywords": [
     "element-plus",
@@ -50,7 +50,7 @@
     "gitBuild": "vite build --base=/el-plus-powerful-form/"
   },
   "peerDependencies": {
-    "el-plus-powerful-table": "^2.2.21",
+    "el-plus-powerful-table": "^2.3.1",
     "vue": "^3.2.0"
   },
   "dependencies": {

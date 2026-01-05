@@ -12,6 +12,9 @@
 - 2.0.0 版本
 - - 支持上传功能
 
+## 1.0.25 20260105
+- 修复使用多个 `PowerfulTable` 时部分情况下会使第二个及之后的 `PowerfulTable` 组件中的 `formData` 与上一个`PowerfulTable` 的 `formData` 属性合并。
+
 ## 1.0.24 20250922
 - `FormItem[visible]` 属性补充第二个参数 `showType`. `showType` 为当前 `props.showType`
 
