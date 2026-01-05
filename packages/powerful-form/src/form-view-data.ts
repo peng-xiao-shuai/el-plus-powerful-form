@@ -360,7 +360,6 @@ export const useFormViewState = (props: PowerfulFormProps) => {
       watch(
         () => props.formDataDefault,
         (val) => {
-          formViewData.formData = deepClone(DEFAULT_DATA)
           // 写入 formData （表单数据）
           Object.assign(formViewData.formData, val || {})
         },
