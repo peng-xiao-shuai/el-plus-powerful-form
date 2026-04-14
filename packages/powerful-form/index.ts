@@ -3,6 +3,7 @@ import type { SFCWithInstall } from 'element-plus/es/utils'
 import type { App } from 'vue'
 export enum FormTypeEnum {
   Select = 'select',
+  SelectV2 = 'selectV2',
   Input = 'input',
   Switch = 'switch',
   Rate = 'rate',

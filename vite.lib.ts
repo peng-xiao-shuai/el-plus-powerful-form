@@ -49,6 +49,7 @@ export default defineConfig(() => {
                 'radio',
                 'radio-group',
                 'select-v2',
+                'select',
                 'switch',
                 'input',
                 'rate',

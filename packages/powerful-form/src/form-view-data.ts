@@ -266,6 +266,7 @@ export const useFormViewState = (props: PowerfulFormProps) => {
 
     switch (formItem.type) {
       case FormTypeEnum.Select:
+      case FormTypeEnum.SelectV2:
         // 给select类型添加默认值
         if (PTHeaderProps) {
           if (!formItem.data?.options && Array.isArray(PTHeaderProps.filters)) {

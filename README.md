@@ -12,6 +12,10 @@
 - 2.0.0 版本
 - - 支持上传功能
 
+## 1.0.26 20260414
+- `type = FormTypeEnum.Select` 类型时内部组件改为使用 `ElSelect` 实现。
+- 新增`FormTypeEnum.SelectV2` 类型, 同 `FormTypeEnum.Select` 类型配置, 内部使用 `ElSelectV2` 实现。
+
 ## 1.0.25 20260105
 - 修复使用多个 `PowerfulTable` 时部分情况下会使第二个及之后的 `PowerfulTable` 组件中的 `formData` 与上一个`PowerfulTable` 的 `formData` 属性合并。
 

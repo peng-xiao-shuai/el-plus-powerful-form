@@ -93,6 +93,7 @@ export const matchComponents = (type: Exclude<keyof FormType, 'slot'>) => {
     [FormTypeEnum.Textarea]: 'FInput',
     [FormTypeEnum.Rate]: 'FRate',
     [FormTypeEnum.Select]: 'FSelect',
+    [FormTypeEnum.SelectV2]: 'FSelectV2',
     [FormTypeEnum.DatePicker]: 'FDatePicker',
     [FormTypeEnum.Radio]: 'FRadio',
     [FormTypeEnum.Checkbox]: 'FCheckbox',

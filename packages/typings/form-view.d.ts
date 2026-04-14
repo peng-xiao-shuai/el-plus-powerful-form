@@ -19,6 +19,7 @@ import type {
   InputProps,
   RadioGroupProps,
   RateProps,
+  SelectProps,
   SelectV2Context,
   SwitchProps,
 } from 'element-plus'
@@ -46,6 +47,7 @@ export type FormType = {
   [FormTypeEnum.Switch]: SwitchDataType
   [FormTypeEnum.Input]: InputDataType
   [FormTypeEnum.Select]: SelectDataType
+  [FormTypeEnum.SelectV2]: SelectV2DataType
   [FormTypeEnum.Rate]: RateDataType
   [FormTypeEnum.Slot]: null
   [FormTypeEnum.Textarea]: InputDataType
@@ -62,6 +64,7 @@ export type FormEventType =
   | FormTypeEnum.Switch
   | FormTypeEnum.Input
   | FormTypeEnum.Select
+  | FormTypeEnum.SelectV2
   | FormTypeEnum.Rate
   | FormTypeEnum.Textarea
   | FormTypeEnum.DatePicker
@@ -246,7 +249,7 @@ export type SelectEmit<T> = {
    */
   'visible-change'?: (parameter: T, ...arg: any) => void
 }
-export type SelectDataType = {
+export type SelectV2DataType = {
   /**
    * 样式
    */
@@ -294,6 +297,55 @@ export type SelectDataType = {
    * @see https://element-plus.gitee.io/zh-CN/component/select.html#attributes
    */
   property?: ElComponentProp<SelectV2Context['props']>
+}
+export type SelectDataType = {
+  /**
+   * 样式
+   */
+  style?: CSSProperties
+  /**
+   * el-select 组件 props.props，默认读取 PowerfulTableHeaderProps 类型下的 filters
+   */
+  options?: SelectProps['options']
+  /**
+   * 事件合集
+   */
+  on?: SelectEmit<{
+    /**
+     * 表单配置项数据
+     */
+    formItem: FormItem
+    /**
+     * 索引
+     */
+    index: number
+    /**
+     * 表单数据
+     */
+    formData: PowerfulFormData['formData']
+  }>
+  /**
+   * 插槽
+   */
+  slots?: {
+    /**
+     * 默认插槽 option 内容，权重最高
+     */
+    default?: SlotFun
+    /**
+     * 空插槽，当没有数据时显示
+     */
+    empty?: SlotFun
+    /**
+     * 前置插槽
+     */
+    prefix?: SlotFun
+  }
+  /**
+   * el-select 组件 props
+   * @see https://element-plus.gitee.io/zh-CN/component/select.html#attributes
+   */
+  property?: ElComponentProp<SelectProps>
 }
 
 export type UploadFileEmit<T> = {
@@ -638,6 +690,10 @@ export type FormItemData =
     }
   | {
       type?: FormTypeEnum.Select
+      data?: SetDataType<FormTypeEnum.Select>
+    }
+  | {
+      type?: FormTypeEnum.SelectV2
       data?: SetDataType<FormTypeEnum.Select>
     }
   | {

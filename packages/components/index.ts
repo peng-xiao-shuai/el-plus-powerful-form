@@ -9,6 +9,7 @@ import { FInput } from './f-input'
 import { FSwitch } from './f-switch'
 import { FRate } from './f-rate'
 import { FSelect } from './f-select'
+import { FSelectV2 } from './f-select-v2'
 import { FDatePicker } from './f-date-picker'
 import { FRadio } from './f-radio'
 import { FCheckbox } from './f-checkbox'
@@ -20,6 +21,7 @@ export * from './f-input'
 export * from './f-switch'
 export * from './f-rate'
 export * from './f-select'
+export * from './f-select-v2'
 export * from './f-date-picker'
 export * from './f-radio'
 export * from './f-checkbox'
@@ -30,6 +32,7 @@ export default [
   FSwitch,
   FRate,
   FSelect,
+  FSelectV2,
   FDatePicker,
   FRadio,
   FCheckbox,
