@@ -37,9 +37,6 @@ export const FRate = defineComponent({
           onChange={(arg: number) => {
             emit('update:modelValue', arg)
             event('change', arg)
-            setTimeout(() => {
-              console.log(props.formData[props.formItem.prop!], arg)
-            }, 1000)
           }}
           {...isProperty(
             {

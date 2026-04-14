@@ -41,7 +41,6 @@ export const componentRegister = (app: App) => {
     if (!app._context.components[c.name!]) {
       app.component(c.name!, c)
     }
-    console.log(c.name, 'app')
   })
 }
 

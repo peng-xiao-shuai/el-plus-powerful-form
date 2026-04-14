@@ -45,7 +45,7 @@ export default defineConfig(() => {
                 'form-item',
                 'checkbox',
                 'checkbox-group',
-                'date-picker',
+                'date-picker-panel',
                 'radio',
                 'radio-group',
                 'select-v2',
