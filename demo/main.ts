@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 // import ElementPlus from 'element-plus'
 import PowerfulTable from 'el-plus-powerful-table'
+import 'el-plus-powerful-table/es/style.css'
 // import en from 'element-plus/lib/locale/lang/en'
 // import zh from 'element-plus/lib/locale/lang/zh-cn'
 // import PowerfulTable from '../es'

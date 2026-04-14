@@ -135,7 +135,21 @@ const header: PowerfulFormPTHeaders<Lists>[] = [
             underline: true,
           },
         }),
-        formItem: {},
+        formItem: {
+          type: FormTypeEnum.SelectV2,
+          data: {
+            options: [
+              {
+                label: '奥迪',
+                value: 'Audi',
+              },
+              {
+                label: '宝马',
+                value: 'BMW',
+              },
+            ],
+          },
+        },
       },
       {
         prop: 'icon',
@@ -176,14 +190,40 @@ const header: PowerfulFormPTHeaders<Lists>[] = [
         formItem: {
           type: FormTypeEnum.Select,
           rule: true,
-          data: {},
         },
       },
       {
         prop: 'desc',
+        filters: [
+          {
+            key: 1,
+            value: '1',
+          },
+        ],
         formItem: {
-          type: FormTypeEnum.Textarea,
-          visible: (row) => row.brand === 'BMW',
+          rule: true,
+          basis: '48%',
+          type: FormTypeEnum.Select,
+          visible: (row) => {
+            return row.brand === 'BMW'
+          },
+        },
+      },
+      {
+        prop: 'dessc',
+        filters: [
+          {
+            key: 1,
+            value: '1',
+          },
+        ],
+        formItem: {
+          rule: true,
+          basis: '48%',
+          type: FormTypeEnum.Select,
+          visible: (row) => {
+            return row.brand === 'BMW'
+          },
         },
       },
       {
@@ -248,16 +288,17 @@ const header: PowerfulFormPTHeaders<Lists>[] = [
       {
         prop: 'price',
         type: 'input',
-        data: setData<'input', Lists>({
+        formItem: {},
+        data: setData<'input', Lists>(() => ({
           slot: 'append',
-          symbol: '万',
+          symbol: '萬',
           style: { width: '100%' },
           property({ row, index, props }) {
             return {
               placeholder: '售价',
             }
           },
-        }),
+        })),
       },
     ],
   },

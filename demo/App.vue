@@ -22,7 +22,7 @@
         <el-button
           type="primary"
           @click="
-            powerfulTable?.resetList(
+            powerfulTable?.resetList!(
               powerfulForm?.powerfulFormData.formData || {}
             )
           "
@@ -125,11 +125,13 @@
           <el-button @click="state.dialogVisible = false">关闭</el-button>
         </template>
       </PowerfulForm>
+      <el-button type="primary" @click="handleClear"> 清空 </el-button>
     </el-drawer>
   </div>
 </template>
 
 <script setup lang="ts">
+import { log } from 'console'
 import { ElMessage } from 'element-plus'
 import { deepClone } from 'el-plus-powerful-table'
 import { Download, Upload } from '@element-plus/icons-vue'
@@ -142,7 +144,7 @@ import type {
   PowerfulTableOperateData,
 } from 'el-plus-powerful-table'
 import type { Lists } from './indexData'
-import type { PTHeadersProps, PowerfulFormExpose } from '../packages/index'
+import type { PTHeadersProps, PowerfulFormExpose } from '../es'
 
 const { proxy } = getCurrentInstance()!
 // 所有页面选中数组
@@ -304,6 +306,12 @@ const handleConfirm = () => {
   })
 
   state.dialogVisible = false
+}
+
+const handleClear = () => {
+  console.log(PFormOperate.value)
+  console.log(PFormOperate.value?.formItems)
+  console.log(PFormOperate.value?.$refs.elFormRef.value)
 }
 </script>
 
